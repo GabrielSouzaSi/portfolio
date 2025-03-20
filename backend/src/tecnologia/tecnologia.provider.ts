@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common"
 import { PrismaProvider } from "src/db/prisma.provider"
+import { Tecnologia } from "@core"
 
 @Injectable()
 export class TecnologiaProvider {
@@ -7,5 +8,13 @@ export class TecnologiaProvider {
 
 	async obterTecnologias() {
 		return this.prisma.tecnologia.findMany()
+	}
+
+	async obterDestaques(): Promise<Tecnologia[]> {
+		return this.prisma.tecnologia.findMany({
+			where: {
+				destaque: true,
+			},
+		})
 	}
 }
