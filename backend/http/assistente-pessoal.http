@@ -1,0 +1,7 @@
+POST http://localhost:5678/webhook-test/assistente-pessoal
+Content-Type: application/json
+
+{
+  "chatId": "123456",
+  "message": "Quais projetos em node você tem experiencia?"
+}
